@@ -101,3 +101,10 @@ def pooling2d(x_data, pool_shape, stride, padding, pool_mode = 'max'):
       pooling_output[idx] = one_channel_pooling(data_channel, pool_shape, stride, padding, pool_mode)
 
     return np.moveaxis(pooling_output, 0, 2) # change channels first to channels last format
+
+def readImage(path, image_size):
+    result = []
+    images = os.listdir(path)
+    for image in images:
+        result.append(cv2.resize(cv2.imread(path + '/' + image, 1), image_size))
+    return np.array(result)

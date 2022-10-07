@@ -43,9 +43,3 @@ def softmax_time_distributed(x):
     ex = np.exp(xx - np.max(xx))
     result.append(ex/ex.sum())
   return result
-
-def softmax_time_distributed_deriv(x):
-  result = []
-  for xx in x:
-    result.append(softmax_deriv(xx))
-  return result
